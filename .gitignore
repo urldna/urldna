@@ -3,3 +3,5 @@ exceptions/__pycache__
 models/__pycache__
 schemas/__pycache__
 __pycache__
+dist
+urlDNA.egg-info
