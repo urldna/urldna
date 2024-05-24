@@ -2,7 +2,7 @@
 from marshmallow import Schema, fields, post_load
 
 # Models
-from models.technology import Technology
+from urldna.models.technology import Technology
 
 
 class TechnologySchema(Schema):

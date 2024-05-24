@@ -2,7 +2,7 @@
 from marshmallow import Schema, fields, post_load
 
 # Models
-from models.scan import Scan
+from urldna.models.scan import Scan
 
 class ScanSchema(Schema):
     id = fields.String(allow_none=True)

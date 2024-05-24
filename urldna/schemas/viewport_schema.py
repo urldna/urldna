@@ -2,7 +2,7 @@
 from marshmallow import Schema, fields, post_load
 
 # Model
-from models.viewport import Viewport
+from urldna.models.viewport import Viewport
 
 class ViewportSchema(Schema):
     device =  fields.String(allow_none=True)

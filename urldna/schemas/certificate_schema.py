@@ -2,7 +2,7 @@
 from marshmallow import Schema, fields, post_load
 
 # Models
-from models.certificate import Certificate
+from urldna.models.certificate import Certificate
 
 class CertificateSchema(Schema):
     authority_info_access = fields.String(allow_none=True)

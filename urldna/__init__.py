@@ -2,13 +2,13 @@ import time
 import requests
 
 # Exception
-from exceptions.api_exception import ApiException
+from urldna.exceptions.api_exception import ApiException
 
 # Schemas
-from schemas.scan_schema import scan_schema, scans_schema
-from schemas.viewport_schema import viewports_schema
-from schemas.scan_result_schema import scan_result_schema
-from schemas.user_agent_schema import user_agents_schema
+from urldna.schemas.scan_schema import scan_schema, scans_schema
+from urldna.schemas.viewport_schema import viewports_schema
+from urldna.schemas.scan_result_schema import scan_result_schema
+from urldna.schemas.user_agent_schema import user_agents_schema
 
 
 class UrlDNA:
@@ -42,7 +42,7 @@ class UrlDNA:
         if response.status_code==200:
             return scan_result_schema.load(response.json())
         else:
-            return ApiException(response.content.decode())
+            raise ApiException(response.content.decode())
 
     def search(self, query):
         """
@@ -61,7 +61,7 @@ class UrlDNA:
         if response.status_code==200:
             return scans_schema.load(response.json())
         else:
-            return ApiException(response.content.decode())
+            raise ApiException(response.content.decode())
 
     def viewports(self):
         """
@@ -77,7 +77,7 @@ class UrlDNA:
         if response.status_code==200:
             return viewports_schema.load(response.json())
         else:
-            return ApiException(response.content.decode())
+            raise ApiException(response.content.decode())
 
     def user_agents(self):
         """
@@ -93,7 +93,7 @@ class UrlDNA:
         if response.status_code==200:
             return user_agents_schema.load(response.json())
         else:
-            return ApiException(response.content.decode())
+            raise ApiException(response.content.decode())
 
     def async_create_scan(self, url,
                           device="DESKTOP",

@@ -14,7 +14,7 @@ setup(
         description=DESCRIPTION,
         long_description=LONG_DESCRIPTION,
         packages=find_packages(),
-        install_requires=["requests"],
+        install_requires=["requests", "marshmallow"],
         
         keywords=['python', 'web scraping', 'website analysis', 'url scan'],
         classifiers= [

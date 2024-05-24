@@ -2,7 +2,7 @@
 from marshmallow import Schema, fields, post_load
 
 # Models
-from models.http_transaction import HttpTransaction
+from urldna.models.http_transaction import HttpTransaction
 
 class HttpTransactionSchema(Schema):
     url = fields.String(allow_none=True)

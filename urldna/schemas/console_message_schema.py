@@ -2,7 +2,7 @@
 from marshmallow import Schema, fields, post_load
 
 # Models
-from models.console_message import ConsoleMessage
+from urldna.models.console_message import ConsoleMessage
 
 class ConsoleMessageSchema(Schema):
     text = fields.String(allow_none=True)

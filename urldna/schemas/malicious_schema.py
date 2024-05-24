@@ -2,7 +2,7 @@
 from marshmallow import Schema, fields, post_load
 
 # Models
-from models.malicious import Malicious
+from urldna.models.malicious import Malicious
 
 class MaliciousSchema(Schema):
     malicious = fields.Boolean(allow_none=True)

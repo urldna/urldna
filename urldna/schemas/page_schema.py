@@ -2,7 +2,7 @@
 from marshmallow import Schema, fields, post_load
 
 # Models
-from models.page import Page
+from urldna.models.page import Page
 
 class PageSchema(Schema):
     text = fields.String(allow_none=True)

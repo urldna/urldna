@@ -2,7 +2,7 @@
 from marshmallow import Schema, fields, post_load
 
 # Models
-from models.cookie import Cookie
+from urldna.models.cookie import Cookie
 
 class CookieSchema(Schema):
     domain = fields.String(allow_none=True)

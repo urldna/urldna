@@ -2,7 +2,7 @@
 from marshmallow import Schema, fields, post_load
 
 # Model
-from models.user_agent import UserAgent
+from urldna.models.user_agent import UserAgent
 
 
 class UserAgentSchema(Schema):

@@ -2,7 +2,7 @@
 from marshmallow import Schema, fields, post_load
 
 # Models
-from models.ip_address import IpAddress
+from urldna.models.ip_address import IpAddress
 
 class IpAddressSchema(Schema):
     ip = fields.String(allow_none=True)

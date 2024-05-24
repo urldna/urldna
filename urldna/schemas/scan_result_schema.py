@@ -2,20 +2,20 @@
 from marshmallow import Schema, fields, post_load
 
 # Schemas
-from schemas.scan_schema import scan_schema
-from schemas.page_schema import page_schema
-from schemas.cookie_schema import cookies_schema
-from schemas.favicon_schema import favicon_schema
-from schemas.malicious_schema import malicious_schema
-from schemas.ip_address_schema import ip_address_schema
-from schemas.screenshot_schema import screenshot_schema
-from schemas.technology_schema import technologies_schema
-from schemas.certificate_schema import certificate_schema
-from schemas.console_message_schema import console_messages_schema
-from schemas.http_transaction_schema import http_transactions_schema
+from urldna.schemas.scan_schema import scan_schema
+from urldna.schemas.page_schema import page_schema
+from urldna.schemas.cookie_schema import cookies_schema
+from urldna.schemas.favicon_schema import favicon_schema
+from urldna.schemas.malicious_schema import malicious_schema
+from urldna.schemas.ip_address_schema import ip_address_schema
+from urldna.schemas.screenshot_schema import screenshot_schema
+from urldna.schemas.technology_schema import technologies_schema
+from urldna.schemas.certificate_schema import certificate_schema
+from urldna.schemas.console_message_schema import console_messages_schema
+from urldna.schemas.http_transaction_schema import http_transactions_schema
 
 # Models
-from models.scan_result import ScanResult
+from urldna.models.scan_result import ScanResult
 
 
 class ScanResultSchema(Schema):

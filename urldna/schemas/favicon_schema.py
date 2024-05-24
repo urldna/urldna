@@ -2,9 +2,10 @@
 from marshmallow import Schema, fields, post_load
 
 # Models
-from models.screenshot import Screenshot
+from urldna.models.favicon import Favicon
 
-class ScreenshotSchema(Schema):
+class FaviconSchema(Schema):
+    url = fields.String(allow_none=True)
     blob_uri = fields.String(allow_none=True)
     name = fields.String(allow_none=True)
     phash = fields.String(allow_none=True)
@@ -15,6 +16,7 @@ class ScreenshotSchema(Schema):
 
     @post_load
     def create(self, data, **kwargs):
-        return Screenshot(**data)
+        return Favicon(**data)
 
-screenshot_schema = ScreenshotSchema()
+
+favicon_schema = FaviconSchema()
