@@ -15,9 +15,8 @@ setup(
         author_email="urldna@urldna.io",
         description=DESCRIPTION,
         long_description=LONG_DESCRIPTION,
-        packages=find_packages(),
+        packages=find_packages(where="urldna"),
         install_requires=["requests", "marshmallow"],
-        
         keywords=['python', 'web scraping', 'website analysis', 'url scan'],
         classifiers= [
             "Development Status :: 3 - Alpha",
