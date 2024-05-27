@@ -20,7 +20,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=find_packages(),
-    install_requires=["requests", "marshmallow"],
+    install_requires=required,
     keywords=['python', 'web scraping', 'website analysis', 'url scan'],
     classifiers= [
         "Programming Language :: Python :: 3",
