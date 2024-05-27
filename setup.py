@@ -21,7 +21,7 @@ setup(
     long_description_content_type="text/markdown",
     packages=find_packages(),
     install_requires=required,
-    keywords=['python', 'web scraping', 'website analysis', 'url scan'],
+    keywords=['web scraping', 'website analysis', 'url scan'],
     classifiers= [
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
