@@ -10,6 +10,8 @@ setup(
         name="urlDNA", 
         version=VERSION,
         author="urlDNA",
+        license="MIT License",
+        url="https://urldna.io",
         author_email="urldna@urldna.io",
         description=DESCRIPTION,
         long_description=LONG_DESCRIPTION,
