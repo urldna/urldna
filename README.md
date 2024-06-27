@@ -4,6 +4,12 @@
 
 urlDNA is a powerful tool for comprehensive URL analysis, advanced brand monitoring, phishing detection, and custom query capabilities. This Python package allows users to interact with the urlDNA API seamlessly through Python.
 
+
+
+[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+
+[![GitHub license](https://img.shields.io/github/license/Day8/re-frame.svg?style=flat-square)](LICENSE)
+
 [Homepage](https://urldna.io/)
 
 ## Features
