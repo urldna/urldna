@@ -40,7 +40,7 @@ api_key = 'YOUR_API_KEY'
 client = UrlDNA(api_key)
 ```
 
-## Craete Scan
+## Create Scan
 Initiate a new scan for a given URL to analyze its content and metadata.
 
 ```python
