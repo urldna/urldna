@@ -9,5 +9,5 @@ class Malicious(object):
         self.threat = threat
 
     def __repr__(self):
-        return "<Malicious threat: %r, malicious: %rr>" % (
+        return "<Malicious threat: %r, malicious: %r>" % (
             self.threat, self.malicious)
