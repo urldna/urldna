@@ -5,7 +5,7 @@ from marshmallow import Schema, fields, post_load
 from urldna.models.scan_feedback import ScanFeedback
 
 class ScanFeedbackSchema(Schema):
-    phishing_count = fields.Integer(allow_none=True)
+    malicious_count = fields.Integer(allow_none=True)
     safe_count = fields.Integer(allow_none=True)
     user_feedback = fields.String(allow_none=True)
     
