@@ -9,6 +9,7 @@ from urldna.schemas.scan_schema import scan_schema, scans_schema
 from urldna.schemas.viewport_schema import viewports_schema
 from urldna.schemas.scan_result_schema import scan_result_schema
 from urldna.schemas.user_agent_schema import user_agents_schema
+from urldna.schemas.fast_check_schema import fast_check_schema
 from urldna.schemas.scan_feedback_schema import scan_feedback_schema
 
 
@@ -102,6 +103,7 @@ class UrlDNA:
                           width=1920,
                           height=1080,
                           waiting_time=5,
+                          scanned_from="DEFAULT",
                           private_scan=False):
         """
         Create async new scan, it returns an empty scan object with PENDING/RUNNING status, you have to check a few moments later if status is DONE to get full access to all scan attributes
@@ -111,6 +113,7 @@ class UrlDNA:
         :param width: viewport width
         :param height: viewport height
         :param waiting_time: waiting time
+        :param scanned_from: Scan country source
         :param private_scan: Private scan
         :return: Scan object
         """
@@ -120,6 +123,7 @@ class UrlDNA:
         # payload
         payload = {
             "submitted_url": url,
+            "scanned_from": scanned_from,
             "device": device,
             "user_agent": user_agent,
             "width": int(width),
@@ -142,6 +146,7 @@ class UrlDNA:
                           width=1920,
                           height=1080,
                           waiting_time=5,
+                          scanned_from="DEFAULT",
                           private_scan=False):
         """
         Create new scan, it could be take few minutes
@@ -151,12 +156,21 @@ class UrlDNA:
         :param width: viewport width
         :param height: viewport height
         :param waiting_time: waiting time
+        :param scanned_from: Scan country source
         :param private_scan: Private scan
         :return: Scan object
         """
         try:
             # Create async scan
-            scan = self.async_create_scan(url, device, user_agent, width, height, waiting_time, private_scan)
+            scan = self.async_create_scan(
+                url, 
+                device=device, 
+                user_agent=user_agent, 
+                width=width, 
+                height=height, 
+                waiting_time=waiting_time, 
+                scanned_from=scanned_from,
+                private_scan=private_scan)
             status = scan.status
             
             while status not in ["DONE", "ERROR"]:
@@ -168,6 +182,28 @@ class UrlDNA:
             return scan_result
         except Exception as e:
             raise ApiException(str(e))
+        
+    def fast_check(self, url):
+        """
+        Check if URL is CLEAN, MALICIOUS or UNRATED
+        :param url: Submitted URL
+        :return: FastCheck
+        """
+        # URL
+        api_url = UrlDNA.ENDPOINT_URL + "/fast-check"
+
+        # payload
+        payload = {
+            "url": url
+        }
+
+        # Get response
+        response = requests.post(api_url, headers=self.headers, json=payload)
+
+        if response.status_code == 200:
+            return fast_check_schema.load(response.json())
+        else:
+            raise ApiException(response.content.decode())
         
     def toogle_scan_feedback(self, 
                           scan_id,

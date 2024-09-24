@@ -3,6 +3,7 @@ class Scan(object):
     def __init__(self,
                 id=None,
                 submitted_url=None,
+                scanned_from=None,
                 target_url=None,
                 protocol=None,
                 domain=None,
@@ -33,7 +34,7 @@ class Scan(object):
         self.submitted_date = submitted_date
         self.status = status
         self.private_scan = private_scan
+        self.scanned_from = scanned_from
 
     def __repr__(self):
-        return "<Scan id: %r, domain: %r submitted_date: %r>" % (
-            self.id, self.domain, self.submitted_date.isoformat())
+        return "<Scan id: %r, submitted_date: %r>" % (self.id, self.submitted_date.isoformat())
