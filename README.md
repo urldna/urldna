@@ -19,6 +19,7 @@ urlDNA is a powerful tool for comprehensive URL analysis, advanced brand monitor
 - **Get Scan**: Retrieve the results of a all scans.
 - **Viewports**: All available viewports by device.
 - **User Agents**: All available user agents.
+- **Fast Check**: Check if an URL is CLEAN or MALICIOUS (beta).
 
 ## Installation
 
@@ -84,6 +85,14 @@ List of all available user agents (browser, device, user_agent)
 ```python'
 user_agents = client.user_agents()
 print(user_agents)
+```
+
+## Fast check
+Check if an URL is CLEAN or MALICIOUS (beta).
+
+```python'
+fast_check = client.fast_check("https://google.com")
+print(fast_check)
 ```
 
 # API Reference
