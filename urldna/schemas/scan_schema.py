@@ -20,6 +20,7 @@ class ScanSchema(Schema):
     private_scan = fields.Boolean(allow_none=True)
     status = fields.String(allow_none=True)
     submitted_date = fields.DateTime(allow_none=True)
+    submitter_tags = fields.List(fields.String, required=False)
 
     @post_load
     def create(self, data, **kwargs):
