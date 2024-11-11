@@ -43,7 +43,7 @@ class ScanResult(object):
         self.http_transactions = http_transactions
         self.console_messages = console_messages
         self.malicious = malicious
-        self.scan_wois = scan_whois
+        self.scan_whois = scan_whois
 
     def __repr__(self):
         return "<ScanResult scan: %r >" % self.scan
