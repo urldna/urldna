@@ -9,6 +9,7 @@ from urldna.schemas.favicon_schema import favicon_schema
 from urldna.schemas.malicious_schema import malicious_schema
 from urldna.schemas.ip_address_schema import ip_address_schema
 from urldna.schemas.screenshot_schema import screenshot_schema
+from urldna.schemas.scan_whois_schema import scan_whois_schema
 from urldna.schemas.technology_schema import technologies_schema
 from urldna.schemas.certificate_schema import certificate_schema
 from urldna.schemas.scan_feedback_schema import scan_feedback_schema
@@ -26,6 +27,7 @@ class ScanResultSchema(Schema):
     cookies = fields.Nested(cookies_schema, allow_none=True)
     favicon = fields.Nested(favicon_schema, allow_none=True)
     malicious = fields.Nested(malicious_schema, allow_none=True)
+    scan_whois = fields.Nested(scan_whois_schema, allow_none=True)
     ip_address = fields.Nested(ip_address_schema, allow_none=True)
     screenshot = fields.Nested(screenshot_schema, allow_none=True)
     certificate = fields.Nested(certificate_schema, allow_none=True)

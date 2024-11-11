@@ -12,7 +12,8 @@ class ScanResult(object):
                  scan_feedback=None,
                  http_transactions=None,
                  console_messages=None,
-                 malicious=None):
+                 malicious=None,
+                 scan_whois=None):
         """
         Init Full Scan result
         :param scan: Scan
@@ -27,6 +28,7 @@ class ScanResult(object):
         :param http_transactions: List of HttpTransaction
         :param console_messages: List of ConsoleMessage
         :param malicious: Malicious
+        :param scan_whois: ScanWhois
         """
         self.scan = scan
         self.ip_address = ip_address
@@ -41,6 +43,7 @@ class ScanResult(object):
         self.http_transactions = http_transactions
         self.console_messages = console_messages
         self.malicious = malicious
+        self.scan_wois = scan_whois
 
     def __repr__(self):
         return "<ScanResult scan: %r >" % self.scan
