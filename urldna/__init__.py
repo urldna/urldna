@@ -99,9 +99,9 @@ class UrlDNA:
 
     def async_create_scan(self, url,
                           device="DESKTOP",
-                          user_agent="Mozilla/5.0 (Windows NT 10.0;Win64;x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36",
-                          width=1920,
-                          height=1080,
+                          user_agent=None,
+                          width=None,
+                          height=None,
                           waiting_time=5,
                           scanned_from="DEFAULT",
                           private_scan=False):
@@ -121,16 +121,22 @@ class UrlDNA:
         api_url = UrlDNA.ENDPOINT_URL + "/scan"
 
         # payload
-        payload = {
-            "submitted_url": url,
-            "scanned_from": scanned_from,
-            "device": device,
-            "user_agent": user_agent,
-            "width": int(width),
-            "height": int(height),
-            "waiting_time": int(waiting_time),
-            "private_scan": bool(private_scan)
-        }
+        payload = {}
+        payload["submitted_url"] = url
+        if scanned_from:
+            payload["scanned_from"] = scanned_from
+        if device:
+            payload["device"] = device
+        if user_agent:
+            payload["user_agent"] = user_agent
+        if width:
+            payload["width"] = int(width)
+        if height:
+            payload["height"] = int(height)
+        if waiting_time:
+            payload["waiting_time"] = int(waiting_time)
+        if private_scan:
+            payload["private_scan"] = bool(private_scan)
 
         # Get response
         response = requests.post(api_url, headers=self.headers, json=payload)
@@ -142,9 +148,9 @@ class UrlDNA:
 
     def create_scan(self, url,
                           device="DESKTOP",
-                          user_agent="Mozilla/5.0 (Windows NT 10.0;Win64;x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36",
-                          width=1920,
-                          height=1080,
+                          user_agent=None,
+                          width=None,
+                          height=None,
                           waiting_time=5,
                           scanned_from="DEFAULT",
                           private_scan=False):
