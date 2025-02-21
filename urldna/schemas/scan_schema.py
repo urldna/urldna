@@ -21,7 +21,7 @@ class ScanSchema(Schema):
     status = fields.String(allow_none=True)
     submitted_date = fields.DateTime(allow_none=True)
     waiting_time = fields.Integer(allow_none=True)
-    submitter_tags = fields.List(fields.String, required=False)
+    submitter_tags = fields.List(fields.String, required=False, allow_none=True)
 
     @post_load
     def create(self, data, **kwargs):

@@ -178,7 +178,7 @@ class UrlDNA:
                 scanned_from=scanned_from,
                 private_scan=private_scan)
             status = scan.status
-            
+            scan_result = None
             while status not in ["DONE", "ERROR"]:
                 # wait 2 seconds
                 time.sleep(2)
