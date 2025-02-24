@@ -104,7 +104,8 @@ class UrlDNA:
                           height=None,
                           waiting_time=5,
                           scanned_from="DEFAULT",
-                          private_scan=False):
+                          private_scan=False,
+                          submitter_tags=[]):
         """
         Create async new scan, it returns an empty scan object with PENDING/RUNNING status, you have to check a few moments later if status is DONE to get full access to all scan attributes
         :param url: url to scan
@@ -113,8 +114,9 @@ class UrlDNA:
         :param width: viewport width
         :param height: viewport height
         :param waiting_time: waiting time
-        :param scanned_from: Scan country source
+        :param scanned_from: Scan country source, only for PREMIUM users
         :param private_scan: Private scan
+        :param submitter_tags: List of user tags, only for PREMIUM users
         :return: Scan object
         """
         # URL
@@ -137,6 +139,8 @@ class UrlDNA:
             payload["waiting_time"] = int(waiting_time)
         if private_scan:
             payload["private_scan"] = bool(private_scan)
+        if submitter_tags:
+            payload["submitter_tags"] = submitter_tags
 
         # Get response
         response = requests.post(api_url, headers=self.headers, json=payload)
@@ -153,7 +157,8 @@ class UrlDNA:
                           height=None,
                           waiting_time=5,
                           scanned_from="DEFAULT",
-                          private_scan=False):
+                          private_scan=False,
+                          submitter_tags=[]):
         """
         Create new scan, it could be take few minutes
         :param url: url to scan
@@ -164,6 +169,7 @@ class UrlDNA:
         :param waiting_time: waiting time
         :param scanned_from: Scan country source
         :param private_scan: Private scan
+        :param submitter_tags: List of user tags, only for PREMIUM users
         :return: Scan object
         """
         try:
@@ -176,7 +182,8 @@ class UrlDNA:
                 height=height, 
                 waiting_time=waiting_time, 
                 scanned_from=scanned_from,
-                private_scan=private_scan)
+                private_scan=private_scan,
+                submitter_tags=submitter_tags)
             status = scan.status
             scan_result = None
             while status not in ["DONE", "ERROR"]:
