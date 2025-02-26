@@ -218,11 +218,11 @@ class UrlDNA:
         else:
             raise ApiException(response.content.decode())
         
-    def toogle_scan_feedback(self, 
+    def scan_feedback(self, 
                           scan_id,
                           feedback):
         """
-        Toogle scan feedback
+        Toggle scan feedback
         :param url: url to scan
         :param feedback: MALICIOUS or SAFE
         :return: Scan Feedback object
