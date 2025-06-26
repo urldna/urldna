@@ -16,7 +16,7 @@ from urldna.schemas.scan_feedback_schema import scan_feedback_schema
 class UrlDNA:
 
     # URL
-    ENDPOINT_URL = "https://api.urldna.io"
+    ENDPOINT_URL = "https://api.urldna.io/v1"
 
     def __init__(self, api_key):
         """

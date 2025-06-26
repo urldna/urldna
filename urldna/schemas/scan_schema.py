@@ -11,6 +11,7 @@ class ScanSchema(Schema):
     protocol = fields.String(allow_none=True)
     device = fields.String(allow_none=True)
     user_agent = fields.String(allow_none=True)
+    http_referer = fields.String(allow_none=True)
     nsfw = fields.Boolean(allow_none=True)
     scanned_from = fields.String(allow_none=True)
     origin = fields.String(allow_none=True)

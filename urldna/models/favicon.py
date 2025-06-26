@@ -20,4 +20,4 @@ class Favicon(object):
         self.format = format
 
     def __repr__(self):
-        return "<Favicon url: %r, name: %r>" % (self.url[:50], self.name)
+        return "<Favicon url: %r, name: %r>" % (self.url, self.name)

@@ -10,6 +10,7 @@ class Scan(object):
                 nsfw=None,
                 device=None,
                 user_agent=None,
+                http_referer=None,
                 origin=None,
                 width=None,
                 height=None,
@@ -28,6 +29,7 @@ class Scan(object):
         self.nsfw = nsfw
         self.device = device
         self.user_agent = user_agent
+        self.http_referer = http_referer
         self.origin = origin
         self.width = width
         self.height = height
