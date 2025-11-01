@@ -56,10 +56,12 @@ class UrlDNA:
         # URL
         api_url = UrlDNA.ENDPOINT_URL + "/search"
         # payload
-        payload = {"query": query, "page": page}
+        payload = {"query": query}
+        # params
+        params = {"page": page}
 
         # Get response
-        response = requests.post(api_url, headers=self.headers, json=payload)
+        response = requests.post(api_url, headers=self.headers, json=payload, params=params)
 
         if response.status_code==200:
             return scans_schema.load(response.json())
