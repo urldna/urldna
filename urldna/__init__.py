@@ -16,7 +16,7 @@ from urldna.schemas.scan_feedback_schema import scan_feedback_schema
 class UrlDNA:
 
     # URL
-    ENDPOINT_URL = "http://api.urldna.io/v1"
+    ENDPOINT_URL = "https://api.urldna.io/v1"
 
     def __init__(self, api_key):
         """
@@ -56,12 +56,10 @@ class UrlDNA:
         # URL
         api_url = UrlDNA.ENDPOINT_URL + "/search"
         # payload
-        payload = {"query": query}
-        # params
-        params = {"page": page}
+        payload = {"query": query, "page": page}
 
         # Get response
-        response = requests.post(api_url, headers=self.headers, json=payload, params=params)
+        response = requests.post(api_url, headers=self.headers, json=payload)
 
         if response.status_code==200:
             return scans_schema.load(response.json())
