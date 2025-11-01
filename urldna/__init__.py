@@ -16,7 +16,7 @@ from urldna.schemas.scan_feedback_schema import scan_feedback_schema
 class UrlDNA:
 
     # URL
-    ENDPOINT_URL = "https://api.urldna.io/v1"
+    ENDPOINT_URL = "http://api.urldna.io/v1"
 
     def __init__(self, api_key):
         """
@@ -46,19 +46,22 @@ class UrlDNA:
         else:
             raise ApiException(response.content.decode())
 
-    def search(self, query):
+    def search(self, query, page=1):
         """
         Search by query text
         :param query: Domain or CQL syntax
+        :param page: Pagination (only for PREMIUM users)
         :return: Search results
         """
         # URL
         api_url = UrlDNA.ENDPOINT_URL + "/search"
         # payload
         payload = {"query": query}
+        # params
+        params = {"page": page}
 
         # Get response
-        response = requests.post(api_url, headers=self.headers, json=payload)
+        response = requests.post(api_url, headers=self.headers, json=payload, params=params)
 
         if response.status_code==200:
             return scans_schema.load(response.json())
@@ -105,6 +108,7 @@ class UrlDNA:
                           waiting_time=5,
                           scanned_from="DEFAULT",
                           private_scan=False,
+                          http_referer=None,
                           submitter_tags=[]):
         """
         Create async new scan, it returns an empty scan object with PENDING/RUNNING status, you have to check a few moments later if status is DONE to get full access to all scan attributes
@@ -116,6 +120,7 @@ class UrlDNA:
         :param waiting_time: waiting time
         :param scanned_from: Scan country source, only for PREMIUM users
         :param private_scan: Private scan
+        :param http_referer: HTTP Referer URL
         :param submitter_tags: List of user tags, only for PREMIUM users
         :return: Scan object
         """
@@ -131,6 +136,8 @@ class UrlDNA:
             payload["device"] = device
         if user_agent:
             payload["user_agent"] = user_agent
+        if http_referer:
+            payload["http_referer"] = http_referer
         if width:
             payload["width"] = int(width)
         if height:
@@ -158,6 +165,7 @@ class UrlDNA:
                           waiting_time=5,
                           scanned_from="DEFAULT",
                           private_scan=False,
+                          http_referer=None,
                           submitter_tags=[]):
         """
         Create new scan, it could be take few minutes
@@ -169,6 +177,7 @@ class UrlDNA:
         :param waiting_time: waiting time
         :param scanned_from: Scan country source
         :param private_scan: Private scan
+        :param http_referer: HTTP Referer URL
         :param submitter_tags: List of user tags, only for PREMIUM users
         :return: Scan object
         """
@@ -183,6 +192,7 @@ class UrlDNA:
                 waiting_time=waiting_time, 
                 scanned_from=scanned_from,
                 private_scan=private_scan,
+                http_referer=http_referer,
                 submitter_tags=submitter_tags)
             status = scan.status
             scan_result = None

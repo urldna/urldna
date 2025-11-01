@@ -13,6 +13,7 @@ from urldna.schemas.scan_whois_schema import scan_whois_schema
 from urldna.schemas.technology_schema import technologies_schema
 from urldna.schemas.certificate_schema import certificate_schema
 from urldna.schemas.scan_feedback_schema import scan_feedback_schema
+from urldna.schemas.redirect_chain_schema import redirect_chains_schema
 from urldna.schemas.console_message_schema import console_messages_schema
 from urldna.schemas.http_transaction_schema import http_transactions_schema
 
@@ -33,6 +34,7 @@ class ScanResultSchema(Schema):
     certificate = fields.Nested(certificate_schema, allow_none=True)
     technologies = fields.Nested(technologies_schema, allow_none=True)
     scan_feedback = fields.Nested(scan_feedback_schema, allow_none=True)
+    redirect_chains = fields.Nested(redirect_chains_schema, allow_none=True)
     console_messages = fields.Nested(console_messages_schema, allow_none=True)
     http_transactions = fields.Nested(http_transactions_schema, allow_none=True)
 

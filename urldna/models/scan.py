@@ -18,7 +18,8 @@ class Scan(object):
                 submitted_date=None,
                 status=None,
                 private_scan=None,
-                submitter_tags=None):
+                submitter_tags=None,
+                error_code=None):
 
         # Fields
         self.id = id
@@ -39,6 +40,7 @@ class Scan(object):
         self.private_scan = private_scan
         self.scanned_from = scanned_from
         self.submitter_tags = submitter_tags
+        self.error_code = error_code
 
     def __repr__(self):
         return "<Scan id: %r, submitted_date: %r>" % (self.id, self.submitted_date.isoformat())

@@ -8,6 +8,7 @@ class FastCheckSchema(Schema):
     url = fields.String(allow_none=True)
     malicious_score = fields.Float(allow_none=True)
     status = fields.String(allow_none=True)
+    scan_id = fields.String(allow_none=True)
 
     @post_load
     def create(self, data, **kwargs):
