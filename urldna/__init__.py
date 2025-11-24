@@ -10,7 +10,6 @@ from urldna.schemas.viewport_schema import viewports_schema
 from urldna.schemas.scan_result_schema import scan_result_schema
 from urldna.schemas.user_agent_schema import user_agents_schema
 from urldna.schemas.fast_check_schema import fast_check_schema
-from urldna.schemas.scan_feedback_schema import scan_feedback_schema
 
 
 class UrlDNA:
@@ -225,30 +224,5 @@ class UrlDNA:
 
         if response.status_code == 200:
             return fast_check_schema.load(response.json())
-        else:
-            raise ApiException(response.content.decode())
-        
-    def scan_feedback(self, 
-                          scan_id,
-                          feedback):
-        """
-        Toggle scan feedback
-        :param url: url to scan
-        :param feedback: MALICIOUS or SAFE
-        :return: Scan Feedback object
-        """
-        # URL
-        api_url = UrlDNA.ENDPOINT_URL + "/scan/"+str(scan_id)+"/feedback"
-
-        # payload
-        payload = {
-            "feedback": feedback
-        }
-
-        # Get response
-        response = requests.post(api_url, headers=self.headers, json=payload)
-
-        if response.status_code == 200:
-            return scan_feedback_schema.load(response.json())
         else:
             raise ApiException(response.content.decode())

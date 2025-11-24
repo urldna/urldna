@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 with open("requirements.txt") as f:
     required = f.read().splitlines()
 
-VERSION = '0.0.17' 
+VERSION = '0.0.2' 
 DESCRIPTION = 'The DNA test for websites.'
 
 setup(

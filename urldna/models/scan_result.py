@@ -9,10 +9,9 @@ class ScanResult(object):
                  dom=None,
                  cookies=None,
                  technologies=None,
-                 scan_feedback=None,
                  http_transactions=None,
                  console_messages=None,
-                 malicious=None,
+                 classification=None,
                  scan_whois=None,
                  redirect_chains=None):
         """
@@ -24,11 +23,10 @@ class ScanResult(object):
         :param screenshot: Screenshot
         :param dom: Page DOM
         :param cookies: List of Cookie
-        :param scan_feedback: Scan Feedback
         :param technologies: List of Technology
         :param http_transactions: List of HttpTransaction
         :param console_messages: List of ConsoleMessage
-        :param malicious: Malicious
+        :param classification: Classification
         :param scan_whois: ScanWhois
         :param redirect_chains: List of RedirectChain
         """
@@ -41,10 +39,9 @@ class ScanResult(object):
         self.dom = dom
         self.cookies = cookies
         self.technologies = technologies
-        self.scan_feedback = scan_feedback
         self.http_transactions = http_transactions
         self.console_messages = console_messages
-        self.malicious = malicious
+        self.classification = classification
         self.scan_whois = scan_whois
         self.redirect_chains = redirect_chains
 
